@@ -1,0 +1,44 @@
+
+*Emacs setup memo
+
+**本体のインストール
+***Mac OS X Lion: Cocoa Emacs
+色々パッチを当てたいので、Homebrewより。
+-[http://d.hatena.ne.jp/yascentur/20110730/1311963061:title]
+
+**el-get
+パッケージ管理パッケージ。
+
+***インストール
+scratchバッファで以下を打ち込み、実行する(C-j)。
+Emacs23未満ではエラーが出るので諦めて他のインストール方法を頑張って調べる。
+
+>|elisp|
+(url-retrieve
+ "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
+ (lambda (s)
+   (end-of-buffer)
+   (eval-print-last-sexp)))
+||<
+
+***基本的な操作方法
+:M-x el-get-list-package:選択したパッケージをインストール。iでマーク、xで実行、hでヘルプ、?で詳細。
+:M-x el-get-self-update:el-get自身のアップデート
+:M-x el-get-update-all:全てのパッケージのアップデート
+
+***参考
+-[http://shishithefool.blogspot.jp/2012/04/el-get-emacs.html:title]
+-[https://github.com/dimitri/el-get:title]
+
+
+**各種パッケージのインストール
+必要なパッケージを適宜選択。足りないものは自分でレシピを書く。
+-undo-tree
+-xcscope
+-haskell-mode
+
+
+**基本設定
+init.elを参照
+
+

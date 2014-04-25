@@ -1,12 +1,13 @@
 #!/bin/bash
 
-DOT_FILES=( .vimrc .vim .tmux.conf )
+DOT_FILES=( .vimrc .vim .tmux.conf .emacs.d )
 
 for file in ${DOT_FILES[@]}
 do
-    ln -s $HOME/dotfiles/$file $HOME/$file
+    if ! test -e $HOME/$file; then
+    	ln -s $HOME/dotfiles/$file $HOME/$file
+	fi
 done
 
-#[ ! -d ~/.vim/bundle ] && curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
 
