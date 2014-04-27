@@ -10,8 +10,16 @@ fi
 PATH=$PATH:$HOME/bin
 
 # plenv
-export PATH="$HOME/.plenv/bin:$PATH"
-eval "$(plenv init -)"
+if [ -d ~/.plenv ]; then
+    export PATH="$HOME/.plenv/bin:$PATH"
+    eval "$(plenv init -)"
+fi
+
+# rbenv
+if [ -d ~/.rbenv ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
 
 alias ls="ls -G"
 alias ll="ls -l"
