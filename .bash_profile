@@ -9,6 +9,11 @@ fi
 
 PATH=$PATH:$HOME/bin
 
+# git
+if [ -f ~/dotfiles/git-completion.bash ]; then
+    source ~/dotfiles/git-completion.bash
+fi
+
 # plenv
 if [ -d ~/.plenv ]; then
     export PATH="$HOME/.plenv/bin:$PATH"
