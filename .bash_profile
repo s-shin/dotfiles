@@ -13,8 +13,11 @@ PATH=$PATH:$HOME/bin
 export PATH="$HOME/.plenv/bin:$PATH"
 eval "$(plenv init -)"
 
+alias ls="ls -G"
 alias ll="ls -l"
 alias la="ls -al"
 
-export TERM='xterm-256color'
+export TERM="xterm-256color"
+
+PS1="[\u@\h:\w]\n$ "
 
