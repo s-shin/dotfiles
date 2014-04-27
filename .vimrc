@@ -21,6 +21,11 @@ NeoBundle 'vim-scripts/SudoEdit.vim'
 " syntaxes
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'othree/html5.vim'
+"if v:version < 704
+"    NeoBundle 'JulesWang/css.vim'
+"endif
+"NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
 
 filetype plugin indent on
 NeoBundleCheck

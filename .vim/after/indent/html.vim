@@ -1,0 +1,16 @@
+setlocal noexpandtab
+setlocal tabstop=2
+setlocal shiftwidth=2
+setlocal softtabstop=0
+
+if !exists('b:undo_indent')
+    let b:undo_indent = ''
+endif
+
+let b:undo_indent = 'setlocal '.join([
+	    \	'tabstop<',
+	    \	'shiftwidth<',
+	    \	'softtabstop<',
+	    \ ])
+
+
