@@ -9,8 +9,8 @@ export TERM="xterm-256color"
 PATH="$HOME/bin:$PATH"
 
 alias ls="ls -G"
-alias ll="ls -l"
-alias la="ls -al"
+alias ll="ls -lG"
+alias la="ls -alG"
 
 # git
 if [ -f ~/dotfiles/git-completion.bash ]; then
