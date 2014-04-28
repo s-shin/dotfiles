@@ -29,3 +29,9 @@ if [ -d ~/.rbenv ]; then
     eval "$(rbenv init -)"
 fi
 
+# ndenv
+if [ -d ~/.ndenv ]; then
+    export PATH="$HOME/.ndenv/bin:$PATH"
+    eval "$(ndenv init -)"
+fi
+
