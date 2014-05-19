@@ -35,3 +35,9 @@ if [ -d ~/.ndenv ]; then
     eval "$(ndenv init -)"
 fi
 
+# pyenv
+if [ -d ~/.pyenv ]; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
+
