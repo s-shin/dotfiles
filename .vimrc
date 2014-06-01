@@ -26,6 +26,7 @@ NeoBundle 'othree/html5.vim'
 "endif
 "NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on
 NeoBundleCheck
