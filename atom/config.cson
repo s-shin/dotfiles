@@ -1,0 +1,20 @@
+'editor':
+  'fontSize': 13
+  'fontFamily': '"Ricty Discord"'
+  'showInvisibles': true
+  'showIndentGuide': true
+'core':
+  'themes': [
+    'atom-dark-ui'
+    'atom-dark-syntax'
+  ]
+'exception-reporting':
+  'userId': '026a9859-6c7c-ec8e-c174-6c2768814437'
+'release-notes':
+  'viewedVersion': '0.94.0'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': 'db02697497c4522be2d2a26f503628c615ad4fd4'
+'autoclose-html':
+  'closeOnEndOfOpeningTag': true
