@@ -41,3 +41,12 @@ if [ -d ~/.pyenv ]; then
     eval "$(pyenv init -)"
 fi
 
+# z
+Z_PATH=( `brew --prefix`/etc/profile.d/z.sh )
+for file in ${Z_PATH[@]}
+do
+    if [ -f $file ]; then
+        . $file
+        break
+    fi
+done
