@@ -18,3 +18,13 @@
   'userId': 'db02697497c4522be2d2a26f503628c615ad4fd4'
 'autoclose-html':
   'closeOnEndOfOpeningTag': true
+'syntax-settings':
+  'source':
+    'perl':
+      'editorSettings':
+        'tabLength': 4
+        'softTabs': 4
+    'objc':
+      'editorSettings':
+        'tabLength': 4
+        'softTabs': 4
