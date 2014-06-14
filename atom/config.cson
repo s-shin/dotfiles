@@ -1,30 +1,20 @@
-'editor':
-  'fontSize': 13
-  'fontFamily': '"Ricty Discord"'
-  'showInvisibles': true
-  'showIndentGuide': true
-'core':
-  'themes': [
-    'atom-dark-ui'
-    'atom-dark-syntax'
-  ]
 'exception-reporting':
-  'userId': '026a9859-6c7c-ec8e-c174-6c2768814437'
+  'userId': '732b551e-8453-551d-1e0c-09ffd8904786'
 'release-notes':
   'viewedVersion': '0.94.0'
 'welcome':
   'showOnStartup': false
 'metrics':
-  'userId': 'db02697497c4522be2d2a26f503628c615ad4fd4'
-'autoclose-html':
-  'closeOnEndOfOpeningTag': true
+  'userId': '89f80c803b5f4ba9e1f073889ce91df45916059d'
+'editor':
+  'fontSize': 13
+  'fontFamily': 'Ricty Discord'
+  'showInvisibles': true
+  'showIndentGuide': true
+'core': {}
 'syntax-settings':
   'source':
     'perl':
-      'editorSettings':
-        'tabLength': 4
-        'softTabs': 4
-    'objc':
       'editorSettings':
         'tabLength': 4
         'softTabs': 4
