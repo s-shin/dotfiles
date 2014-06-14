@@ -19,3 +19,4 @@
 '.editor':
   'ctrl-o': 'editor:newline-above'
   'ctrl-y': 'core:paste'
+  'cmd-alt-a': 'dot-atom:demo'
