@@ -13,3 +13,25 @@
 #     'prefix': 'log'
 #     'body': 'console.log $1'
 #
+'.source.perl':
+  'Package':
+    'prefix': 'package'
+    'body': 'package ${1:ClassName};\n\n1;\n'
+  'Try/Except':
+    'prefix': 'eval'
+    'body': 'eval {\n\t${1:# do something risky...}\n};\nif ($@) {\n\t${2:# handle failure...}\n}\n'
+  'For Loop':
+    'prefix': 'for'
+    'body': 'for (my $${1:var} = 0; $$2 < ${3:expression}; $$4++) {\n\t${5:# body...}\n}\n'
+  'Foreach Loop':
+    'prefix': 'fore'
+    'body': 'foreach ${1:my $${2:x}} (@${3:array}) {\n\t${4:# body...}\n}\n'
+  'If':
+    'prefix': 'if'
+    'body': 'if ($1) {\n\t${2:# body...}\n}\n'
+  'Unless':
+    'prefix': 'unless'
+    'body': 'unless ($1) {\n\t${2:# body...}\n}\n'
+  'While':
+    'prefix': 'while'
+    'body': 'while ($1) {\n\t${2:# body...}\n}\n'

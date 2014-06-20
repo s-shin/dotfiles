@@ -1,0 +1,13 @@
+'packages': [
+  'autocomplete-paths'
+  'autocomplete-plus'
+  'autocomplete-snippets'
+  'block-travel'
+  'git-plus'
+  'linter'
+  'package-sync'
+  'pomodoro'
+  'syntax-settings'
+  'tag'
+  'wombat'
+]

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=( config.cson init.coffee keymap.cson snippets.cson styles.less )
+FILES=( config.cson init.coffee keymap.cson snippets.cson styles.less packages.cson )
 
 for file in ${FILES[@]}
 do
@@ -8,3 +8,6 @@ do
     ln -s $HOME/dotfiles/atom/$file $HOME/.atom/$file
   fi
 done
+
+apm install package-sync
+
