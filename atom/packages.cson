@@ -5,6 +5,8 @@
   'block-travel'
   'git-plus'
   'linter'
+  'linter-coffeelint'
+  'linter-perl'
   'package-sync'
   'pomodoro'
   'syntax-settings'
