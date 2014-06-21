@@ -14,9 +14,12 @@
 #     'body': 'console.log $1'
 #
 '.source.perl':
-  'Package':
-    'prefix': 'package'
-    'body': 'package ${1:ClassName};\n\n1;\n'
+  'Class':
+    'prefix': 'class'
+    'body': 'package ${1:Name};\n${2:# use ...}\n\n1;\n'
+  'Strict & Warnings Pragma':
+    'prefix': 'strict'
+    'body': 'use strict;\nuse warnings;\n'
   'Try/Except':
     'prefix': 'eval'
     'body': 'eval {\n\t${1:# do something risky...}\n};\nif ($@) {\n\t${2:# handle failure...}\n}\n'
