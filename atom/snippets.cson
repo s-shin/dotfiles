@@ -14,8 +14,8 @@
 #     'body': 'console.log $1'
 #
 '.source.perl':
-  'Class':
-    'prefix': 'class'
+  'Package ':
+    'prefix': 'package'
     'body': 'package ${1:Name};\n${2:# use ...}\n\n1;\n'
   'Strict & Warnings Pragma':
     'prefix': 'strict'
