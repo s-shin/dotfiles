@@ -12,6 +12,17 @@ alias ls="ls -G"
 alias ll="ls -lG"
 alias la="ls -alG"
 
+# share history
+# http://iandeth.dyndns.org/mt/ian/archives/000651.html
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+export HISTSIZE=9999
+
 # git
 if [ -f ~/dotfiles/git-completion.bash ]; then
     source ~/dotfiles/git-completion.bash
@@ -50,3 +61,6 @@ do
         break
     fi
 done
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/shintaro.seki/.gvm/bin/gvm-init.sh" ]] && source "/Users/shintaro.seki/.gvm/bin/gvm-init.sh"
