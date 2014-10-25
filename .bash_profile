@@ -50,3 +50,6 @@ do
         break
     fi
 done
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/shin/.gvm/bin/gvm-init.sh" ]] && source "/Users/shin/.gvm/bin/gvm-init.sh"
