@@ -28,29 +28,14 @@ if [ -f ~/dotfiles/git-completion.bash ]; then
     source ~/dotfiles/git-completion.bash
 fi
 
-# plenv
-if [ -d ~/.plenv ]; then
-    export PATH="$HOME/.plenv/bin:$PATH"
-    eval "$(plenv init -)"
-fi
-
-# rbenv
-if [ -d ~/.rbenv ]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-fi
-
-# ndenv
-if [ -d ~/.ndenv ]; then
-    export PATH="$HOME/.ndenv/bin:$PATH"
-    eval "$(ndenv init -)"
-fi
-
-# pyenv
-if [ -d ~/.pyenv ]; then
-    export PATH="$HOME/.pyenv/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
+langs=(pl rb nd py php)
+for lang in ${langs[@]}
+do
+    if [ -d ~/.${lang}env ]; then
+        export PATH="$HOME/.${lang}env/bin:$PATH"
+        eval "$(${lang}env init -)"
+    fi
+done
 
 # z
 Z_PATH=( `brew --prefix`/etc/profile.d/z.sh )
