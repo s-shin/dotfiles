@@ -23,6 +23,11 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=9999
 
+# enable forward incremental search
+# http://maruta.be/intfloat_staff/47
+stty stop undef
+#bind '"\C-n": forward-search-history'
+
 # git
 if [ -f ~/dotfiles/git-completion.bash ]; then
     source ~/dotfiles/git-completion.bash
