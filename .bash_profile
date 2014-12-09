@@ -85,9 +85,9 @@ done
 psBegin="\033[0;37m[\033[0m"
 psBody="\[\033[0;37m\]\u@\h\[\033[00m\]:\[\033[0;37m\]\w"
 #psGit="git => \[\033[0;37m\]$(__git_ps1 '(%s)')\[\033[00m\]"
-psIfGit='$(if git status &>/dev/null; then echo "git =>"$(__git_ps1); fi)'
+psIfGit='$(if git status &>/dev/null; then echo "(git:"$(__git_ps1 '%s')")"; fi)'
 psEnd="\033[0;37m]\033[0m"
-export PS1="${psBegin}${psBody}${psEnd} ${psIfGit}\n\$ "
+export PS1="${psBegin}${psBody}${psEnd} \033[1;30m${psIfGit}\033[0m\n\$ "
 
 # alias
 alias ls="ls -G"
