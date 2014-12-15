@@ -11,23 +11,23 @@
     'fontFamily': 'Ricty Discord'
     'showInvisibles': true
     'showIndentGuide': true
-    'fontSize': 12
-  'syntax-settings':
-    'source':
-      'perl':
-        'editorSettings':
-          'tabLength': 4
-          'softTabs': 4
-      'objc++':
-        'editorSettings':
-          'tabLength': 4
-          'softTabs': 4
-  'local-settings':
-    'autoEnable': true
+    'fontSize': 14
+    'invisibles': {}
   'linter-perl':
     'executeCommandViaShell': true
-    'incPathsFromProjectPath': [
-      'lib'
-      '.'
-    ]
+  'tag':
+    'closeTagOn </': false
   'linter': {}
+  'core': {}
+'.html.php.text':
+  'editor':
+    'tabLength': 4
+    'softTabs': 4
+'.perl.source':
+  'editor':
+    'tabLength': 4
+    'softTabs': 4
+'.shell.source':
+  'editor':
+    'tabLength': 4
+    'softTabs': 4
