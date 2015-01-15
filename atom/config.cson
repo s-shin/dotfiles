@@ -1,33 +1,39 @@
-'global':
-  'exception-reporting':
-    'userId': '732b551e-8453-551d-1e0c-09ffd8904786'
-  'release-notes':
-    'viewedVersion': '0.94.0'
-  'welcome':
-    'showOnStartup': false
-  'metrics':
-    'userId': '89f80c803b5f4ba9e1f073889ce91df45916059d'
-  'editor':
-    'fontFamily': 'Ricty Discord'
-    'showInvisibles': true
-    'showIndentGuide': true
-    'fontSize': 14
-    'invisibles': {}
-  'linter-perl':
-    'executeCommandViaShell': true
-  'tag':
-    'closeTagOn </': false
-  'linter': {}
-  'core': {}
-'.html.php.text':
-  'editor':
-    'tabLength': 4
-    'softTabs': 4
-'.perl.source':
-  'editor':
-    'tabLength': 4
-    'softTabs': 4
-'.shell.source':
-  'editor':
-    'tabLength': 4
-    'softTabs': 4
+"*":
+  "exception-reporting":
+    userId: "732b551e-8453-551d-1e0c-09ffd8904786"
+  "release-notes":
+    viewedVersion: "0.94.0"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "89f80c803b5f4ba9e1f073889ce91df45916059d"
+  core: {}
+  editor:
+    fontFamily: "Ricty Discord"
+    fontSize: 14
+    showInvisibles: true
+    showIndentGuide: true
+    invisibles: {}
+  "linter-perl":
+    executeCommandViaShell: true
+  tag:
+    "closeTagOn </": false
+  "autocomplete-plus":
+    enableAutoActivation: false
+  linter: {}
+  "syntax-settings":
+    text:
+      html:
+        php:
+          editorSettings:
+            tabLength: 4
+            softTabs: 4
+    source:
+      perl:
+        editorSettings:
+          tabLength: 4
+          softTabs: 4
+      shell:
+        editorSettings:
+          tabLength: 4
+          softTabs: 4
