@@ -7,33 +7,46 @@
     showOnStartup: false
   metrics:
     userId: "89f80c803b5f4ba9e1f073889ce91df45916059d"
-  core: {}
+  core:
+    disabledPackages: [
+      "atom-color-highlight"
+    ]
+  whitespace:
+    removeTrailingWhitespace: false
   editor:
     fontFamily: "Ricty Discord"
-    fontSize: 14
     showInvisibles: true
     showIndentGuide: true
-    invisibles: {}
+    invisibles:
+      {}
+    fontSize: 14
   "linter-perl":
     executeCommandViaShell: true
+    lintOptions: "no-bare-subs,no-context"
   tag:
     "closeTagOn </": false
   "autocomplete-plus":
     enableAutoActivation: false
-  linter: {}
-  "syntax-settings":
-    text:
-      html:
-        php:
-          editorSettings:
-            tabLength: 4
-            softTabs: 4
-    source:
-      perl:
-        editorSettings:
-          tabLength: 4
-          softTabs: 4
-      shell:
-        editorSettings:
-          tabLength: 4
-          softTabs: 4
+  linter:
+    subtleLinterErrors: [
+      "php"
+    ]
+  "atom-beautify":
+    _analyticsUserId: "16a5fac9-e842-4364-884e-7b6e46c18e36"
+  "highlight-column":
+    opacity: 0.15
+    enableHighlight: false
+  "tree-view":
+    {}
+".html.php.text":
+  editor:
+    tabLength: 4
+".shell.source":
+  editor:
+    tabLength: 4
+".perl.source":
+  editor:
+    tabLength: 4
+".php.source":
+  editor:
+    tabLength: 4
