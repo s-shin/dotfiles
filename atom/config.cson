@@ -30,6 +30,7 @@
   linter:
     subtleLinterErrors: [
       "php"
+      "jshint"
     ]
   "atom-beautify":
     _analyticsUserId: "16a5fac9-e842-4364-884e-7b6e46c18e36"
@@ -41,12 +42,12 @@
 ".html.php.text":
   editor:
     tabLength: 4
-".shell.source":
+".php.source":
   editor:
     tabLength: 4
 ".perl.source":
   editor:
     tabLength: 4
-".php.source":
+".shell.source":
   editor:
     tabLength: 4
