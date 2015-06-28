@@ -33,6 +33,11 @@ if [ -f $HOME/dotfiles/git-prompt.sh ]; then
     source $HOME/dotfiles/git-prompt.sh
 fi
 
+# hub completion
+if [ -f /usr/local/etc/bash_completion.d/hub.bash_completion.sh ]; then
+    source /usr/local/etc/bash_completion.d/hub.bash_completion.sh
+fi
+
 # bash-git-prompt
 # https://github.com/magicmonty/bash-git-prompt
 # if $brew; then

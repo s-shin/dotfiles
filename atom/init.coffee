@@ -12,6 +12,3 @@
 #   editor = editorView.getEditor()
 #   if path.extname(editor.getPath()) is '.md'
 #     editor.setSoftWrap(true)
-
-atom.workspaceView.command "dot-atom:demo", '.editor', ->
-  console.log "Hello, World!!!"
