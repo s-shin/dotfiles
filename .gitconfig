@@ -3,5 +3,6 @@
 	email = s2pch.luck@gmail.com
 [core]
 	editor = vim
+	commentchar = ";"
 [rebase]
 	autosquash = true
