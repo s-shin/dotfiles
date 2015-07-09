@@ -17,11 +17,14 @@ export HISTSIZE=9999
 
 # enable forward incremental search
 # http://maruta.be/intfloat_staff/47
-stty stop undef
+# http://stackoverflow.com/a/10022396
+if [ -t 0 ] && [ -t 1 ]; then
+    stty stop undef
+fi
 #bind '"\C-n": forward-search-history'
 
 # check whether homebrew is installed
-brew=$(type python >/dev/null 2>&1)
+brew=$(type brew >/dev/null 2>&1)
 
 # git completion
 if [ -f $HOME/dotfiles/git-completion.bash ]; then
