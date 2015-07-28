@@ -10,6 +10,8 @@
   core:
     disabledPackages: [
       "atom-color-highlight"
+      "stealth-mode"
+      "linter-jsxhint"
     ]
   whitespace:
     removeTrailingWhitespace: false
@@ -17,12 +19,12 @@
     fontFamily: "Ricty Discord"
     showInvisibles: true
     showIndentGuide: true
-    invisibles:
-      {}
-    fontSize: 14
+    invisibles: {}
+    fontSize: 12
   "linter-perl":
     executeCommandViaShell: true
     lintOptions: "no-bare-subs,no-context"
+    autoDetectCarton: true
   tag:
     "closeTagOn </": false
   "autocomplete-plus":
@@ -32,22 +34,30 @@
       "php"
       "jshint"
     ]
+  "local-settings":
+    autoEnable: false
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true
   "atom-beautify":
     _analyticsUserId: "16a5fac9-e842-4364-884e-7b6e46c18e36"
   "highlight-column":
     opacity: 0.15
     enableHighlight: false
-  "tree-view":
-    {}
+  "tree-view": {}
+  react: {}
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
+  "linter-jsxhint":
+    harmony: true
 ".html.php.text":
   editor:
     tabLength: 4
-".php.source":
+".shell.source":
   editor:
     tabLength: 4
 ".perl.source":
   editor:
     tabLength: 4
-".shell.source":
+".php.source":
   editor:
     tabLength: 4

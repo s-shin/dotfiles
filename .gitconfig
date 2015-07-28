@@ -6,3 +6,10 @@
 	commentchar = ";"
 [rebase]
 	autosquash = true
+[alias]
+    co = checkout
+    cb = checkout -b
+    dc = diff --cached
+    st = status
+    fp = fetch -p
+
