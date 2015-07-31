@@ -10,8 +10,8 @@
   core:
     disabledPackages: [
       "atom-color-highlight"
-      "stealth-mode"
       "linter-jsxhint"
+      "linter-jshint"
     ]
   whitespace:
     removeTrailingWhitespace: false
@@ -53,6 +53,12 @@
   editor:
     tabLength: 4
 ".shell.source":
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true
+".html.php.text":
+  editor:
+    tabLength: 4
+".apache-config.source":
   editor:
     tabLength: 4
 ".perl.source":
