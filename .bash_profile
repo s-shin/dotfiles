@@ -23,10 +23,6 @@ if [ -t 0 ] && [ -t 1 ]; then
 fi
 #bind '"\C-n": forward-search-history'
 
-# check whether homebrew is installed
-type brew >/dev/null 2>&1
-brew=$?
-
 # git completion
 if [ -f $HOME/dotfiles/git-completion.bash ]; then
     source $HOME/dotfiles/git-completion.bash
@@ -44,7 +40,7 @@ fi
 
 # bash-git-prompt
 # https://github.com/magicmonty/bash-git-prompt
-# if [ $brew ]; then
+# if brew >/dev/null 2>&1; then
 #     if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
 #         GIT_PROMPT_THEME=Default
 #         #source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
@@ -68,7 +64,7 @@ done
 
 # z
 z_path=( /etc/profile.d/z.sh )
-if [ $brew ]; then
+if brew >/dev/null 2>&1; then
     z_path=( `brew --prefix`/etc/profile.d/z.sh "${array[@]}" )
 fi
 for file in ${z_path[@]}
