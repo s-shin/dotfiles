@@ -24,7 +24,8 @@ fi
 #bind '"\C-n": forward-search-history'
 
 # check whether homebrew is installed
-brew=$(type brew >/dev/null 2>&1)
+type brew >/dev/null 2>&1
+brew=$?
 
 # git completion
 if [ -f $HOME/dotfiles/git-completion.bash ]; then
@@ -43,7 +44,7 @@ fi
 
 # bash-git-prompt
 # https://github.com/magicmonty/bash-git-prompt
-# if $brew; then
+# if [ $brew ]; then
 #     if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
 #         GIT_PROMPT_THEME=Default
 #         #source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
