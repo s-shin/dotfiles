@@ -12,4 +12,5 @@
     dc = diff --cached
     st = status
     fp = fetch -p
+    delete-merged-branches = !git branch --merged | grep -ve '\\*\\|master\\|develop' | xargs git branch -d
 
