@@ -64,7 +64,7 @@ done
 
 # z
 z_path=( /etc/profile.d/z.sh )
-if brew >/dev/null 2>&1; then
+if type brew >/dev/null 2>&1; then
     z_path=( `brew --prefix`/etc/profile.d/z.sh "${array[@]}" )
 fi
 for file in ${z_path[@]}
