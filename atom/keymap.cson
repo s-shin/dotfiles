@@ -19,3 +19,6 @@
 'atom-text-editor':
   'ctrl-o': 'editor:newline-above'
   'ctrl-y': 'core:paste'
+
+'atom-text-editor.vim-mode.insert-mode':
+  'ctrl-y': 'core:paste'
