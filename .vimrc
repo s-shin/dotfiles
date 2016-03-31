@@ -6,30 +6,30 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+""" dein.vim
+" Install dein.vim if not exists
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
+" Load plugin settings
+let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
+  call dein#load_toml(s:toml_file)
+  call dein#end()
+  call dein#save_state()
+endif
+" Install plugins
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
 
-""" Bundles
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'vim-scripts/wombat256.vim'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'vim-scripts/SudoEdit.vim'
-" syntaxes
-NeoBundle 'vim-perl/vim-perl'
-NeoBundle 'othree/html5.vim'
-"if v:version < 704
-"    NeoBundle 'JulesWang/css.vim'
-"endif
-"NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on
-NeoBundleCheck
 
 """ Basic setting
 syntax on

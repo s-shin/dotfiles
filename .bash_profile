@@ -2,7 +2,7 @@
 
 # global
 export TERM="xterm-256color"
-PATH="$HOME/bin:$PATH"
+PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # share history
 # http://iandeth.dyndns.org/mt/ian/archives/000651.html
@@ -103,4 +103,3 @@ alias la="ls -alG"
 if [ -f $HOME/.bashrc ]; then
     source $HOME/.bashrc
 fi
-
