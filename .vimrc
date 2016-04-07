@@ -36,6 +36,8 @@ syntax on
 colorscheme wombat256mod
 set title
 set laststatus=2
+" http://qiita.com/omega999/items/23aec6a7f6d6735d033f
+set backspace=indent,eol,start
 " indent
 set tabstop=4
 set shiftwidth=4
