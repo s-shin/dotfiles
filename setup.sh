@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eux
 
-DOT_FILES=( .vimrc dein.toml .vim .tmux.conf .emacs.d )
+DOT_FILES=( .vimrc dein.toml .vim .tmux.conf .tmux .emacs.d )
 
 for file in ${DOT_FILES[@]}
 do
