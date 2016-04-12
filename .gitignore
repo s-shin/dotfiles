@@ -3,4 +3,6 @@
 .vim/.netrwhist
 .emacs.d/el-get/*
 git-completion.bash
+.tmux/plugins/*
+!.tmux/plugins/tpm
 
