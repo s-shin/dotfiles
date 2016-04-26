@@ -3,7 +3,6 @@
 # global
 export TERM="xterm-256color"
 PATH="$HOME/bin:/usr/local/bin:$PATH"
-export PBCOPY_PORT=44444
 
 # share history
 # http://iandeth.dyndns.org/mt/ian/archives/000651.html
