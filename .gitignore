@@ -6,4 +6,4 @@ git-completion.bash
 git-prompt.sh
 .tmux/plugins/*
 !.tmux/plugins/tpm
-
+tmp

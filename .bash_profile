@@ -2,7 +2,7 @@
 
 # global
 export TERM="xterm-256color"
-PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # homebrew
 # http://rcmdnk.github.io/blog/2016/04/28/computer-mac-homebrew/
@@ -25,63 +25,13 @@ export HISTSIZE=9999
 if [ -t 0 ] && [ -t 1 ]; then
     stty stop undef
 fi
-#bind '"\C-n": forward-search-history'
-
-# git completion
-if [ -f $HOME/dotfiles/git-completion.bash ]; then
-    source $HOME/dotfiles/git-completion.bash
-fi
-
-# git prompt
-if [ -f $HOME/dotfiles/git-prompt.sh ]; then
-    source $HOME/dotfiles/git-prompt.sh
-fi
-
-# hub completion
-if [ -f /usr/local/etc/bash_completion.d/hub.bash_completion.sh ]; then
-    source /usr/local/etc/bash_completion.d/hub.bash_completion.sh
-fi
-
-# bash-git-prompt
-# https://github.com/magicmonty/bash-git-prompt
-# if brew >/dev/null 2>&1; then
-#     if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-#         GIT_PROMPT_THEME=Default
-#         #source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
-#     fi
-# else
-#     if [ -f $HOME/dotfiles/gitprompt.sh ]; then
-#         GIT_PROMPT_THEME=Default
-#         source $HOME/dotfiles/gitprompt.sh
-#     fi
-# fi
 
 # *env
-langs=(pl rb nd py php)
-for lang in ${langs[@]}
-do
+for lang in $(ls -a ~ | grep -e "^\.[a-z]\+env$"); do
     if [ -d $HOME/.${lang}env ]; then
         export PATH="$HOME/.${lang}env/bin:$PATH"
-        eval "$(${lang}env init -)"
     fi
 done
-
-# z
-z_path=( /etc/profile.d/z.sh )
-if type brew >/dev/null 2>&1; then
-    z_path=( `brew --prefix`/etc/profile.d/z.sh "${z_path[@]}" )
-fi
-for file in ${z_path[@]}
-do
-    if [ -f $file ]; then
-        source $file
-        break
-    fi
-done
-
-# gvm
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
 
 # prompt
 #export PS1="[\u@\h:\w]\n$ "
@@ -98,12 +48,7 @@ psIfGit='$(if git status &>/dev/null; then echo "(git:"$(__git_ps1 '%s')")"; fi)
 psEnd="\033[0;37m]\033[0m"
 export PS1="${psBegin}${psBody}${psEnd} \033[1;30m${psIfGit}\033[0m\n\$ "
 
-# alias
-alias ls="ls -G"
-alias ll="ls -lG"
-alias la="ls -alG"
-
 # .bashrc
-if [ -f $HOME/.bashrc ]; then
-    source $HOME/.bashrc
-fi
+[[ -f $HOME/.bashrc ]] && . $HOME/.bashrc
+
+# . $HOME/dotfiles/.bash_profile
