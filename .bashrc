@@ -10,6 +10,7 @@ function source_url() {
     curl -sLO $url
   fi
   . $file
+  cd - > /dev/null
 }
 
 for url in \
