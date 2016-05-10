@@ -27,9 +27,10 @@ if [ -t 0 ] && [ -t 1 ]; then
 fi
 
 # *env
-for lang in $(ls -a ~ | grep -e "^\.[a-z]\+env$"); do
-    if [ -d $HOME/.${lang}env ]; then
-        export PATH="$HOME/.${lang}env/bin:$PATH"
+for dotlangenv in $(ls -a ~ | grep -e "^\.[a-z]\+env$"); do
+    langenv=$(echo $dotlangenv | cut -c 2-)
+    if [ -d $HOME/.${langenv} ]; then
+        export PATH="$HOME/.${langenv}/bin:$PATH"
     fi
 done
 

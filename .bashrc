@@ -23,9 +23,10 @@ for url in \
 done
 
 # *env
-for lang in $(ls -a ~ | grep -e "^\.[a-z]\+env$"); do
-  if [[ -d $HOME/.${lang}env ]]; then
-    eval "$(${lang}env init -)"
+for dotlangenv in $(ls -a ~ | grep -e "^\.[a-z]\+env$"); do
+  langenv=$(echo $dotlangenv | cut -c 2-)
+  if [[ -d $HOME/.${langenv} ]]; then
+    eval "$(${langenv} init -)"
   fi
 done
 
