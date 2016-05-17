@@ -13,4 +13,7 @@
     st = status
     fp = fetch -p
     delete-merged-branches = !git branch --merged | grep -ve '\\*\\|master\\|develop' | xargs git branch -d
+    current-branch = !git symbolic-ref --short HEAD
+[push]
+    default = simple
 
