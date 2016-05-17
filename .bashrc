@@ -35,4 +35,12 @@ alias ls="ls -G"
 alias ll="ls -lG"
 alias la="ls -alG"
 
+alias ghql='cd $(ghq root)/$(ghq list | peco)'
+alias gitb='git branch | peco | sed -e "s/\* //g" | awk "{print \$1}"'
+alias gitba='git branch -a | peco | sed -e "s/\* //g" | awk "{print \$1}" | perl -ple "s%remotes/[^/]+/%%"'
+alias gitcb='git symbolic-ref --short HEAD'
+alias hubc='hub compare $(gitcb)...$(gitba)'
+alias hubca='hub compare $(gitcb)...$(gitba)'
+
 # . $HOME/dotfiles/.bashrc
+
