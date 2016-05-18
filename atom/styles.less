@@ -8,13 +8,27 @@
  * http://www.lesscss.org
  */
 
-atom-text-editor::shadow .jumpy {
-  &.label {
+atom-text-editor /deep/ {
+  .jumpy-label {
     margin-left: 0px;
     padding: 0 2px;
-    background-color: orange;
-    color: black;
+    &.high-contrast {
+      color: black;
+      background-color: orange;
+    }
   }
-  &.jump {
+}
+
+atom-text-editor::shadow {
+  .blame-gutter {
+    .hash {
+      color: orange;
+    }
+    .date {
+      color: #AAA;
+    }
+    .author {
+      color: #EEE;
+    }
   }
 }
