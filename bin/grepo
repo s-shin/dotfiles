@@ -1,0 +1,20 @@
+#!/bin/bash
+set -eu
+
+usage() {
+  echo "usage: GREPO_GREP='git grep' GREPO_EDITOR=atom $0 -n word -- target/files"
+}
+
+if [[ $# -eq 0 ]]; then
+  usage
+  exit 1
+fi
+
+grep_command=${GREPO_GREP:-git grep}
+editor_command=${GREPO_EDITOR:-atom}
+
+file=$(${grep_command} "$@" | peco | perl -ple 's/^([^:]+(?::\d+)?):.*/$1/g')
+
+if [[ ${file} != "" ]]; then
+  ${editor_command} ${file}
+fi
