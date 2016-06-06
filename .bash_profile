@@ -34,6 +34,13 @@ for dotlangenv in $(ls -a ~ | grep -e "^\.[a-z]\+env$"); do
     fi
 done
 
+# go (recommends brew & symlink)
+export GOPATH=$HOME/.go
+export PATH=$HOME/.go/bin:$PATH
+if [[ -d $HOME/.ghq ]]; then
+    export GOPATH=$GOPATH:$HOME/.ghq
+fi
+
 # prompt
 #export PS1="[\u@\h:\w]\n$ "
 # with git-prompt
