@@ -36,6 +36,7 @@ done
 
 # go (recommends brew & symlink)
 export GOPATH=$HOME/.go
+export GOBIN=$HOME/.go/bin
 export PATH=$HOME/.go/bin:$PATH
 if [[ -d $HOME/.ghq ]]; then
     export GOPATH=$GOPATH:$HOME/.ghq
