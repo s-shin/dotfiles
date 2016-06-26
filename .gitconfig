@@ -16,4 +16,6 @@
     current-branch = !git symbolic-ref --short HEAD
 [push]
     default = simple
+[ghq]
+    root = ~/.ghq/src
 
