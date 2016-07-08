@@ -1,8 +1,12 @@
 #!/bin/bash
 set -eu
 
+grep=${GREPO_GREP:-git grep -n}
+editor=${GREPO_EDITOR:-atom}
+filter=${GREPO_FILTER:-peco --query <pattern>}
+
 usage() {
-  echo "usage: GREPO_GREP='git grep' GREPO_EDITOR=atom $0 -n word -- target/files"
+  echo "usage: GREPO_GREP='${grep}' GREPO_EDITOR='${editor}' GREPO_FILTER='${filter}' $0 <grep-options>"
 }
 
 if [[ $# -eq 0 ]]; then
@@ -10,11 +14,10 @@ if [[ $# -eq 0 ]]; then
   exit 1
 fi
 
-grep_command=${GREPO_GREP:-git grep}
-editor_command=${GREPO_EDITOR:-atom}
+filter=$(echo ${filter} | sed "s/<pattern>/$1/g")
 
-file=$(${grep_command} "$@" | peco | perl -ple 's/^([^:]+(?::\d+)?):.*/$1/g')
+${grep} "$@" \
+| ${filter} \
+| perl -ple 's/^([^:]+(?::\d+)?):.*/$1/g' \
+| xargs ${editor}
 
-if [[ ${file} != "" ]]; then
-  ${editor_command} ${file}
-fi
