@@ -14,6 +14,7 @@
     fp = fetch -p
     delete-merged-branches = !git branch --merged | grep -ve '\\*\\|master\\|develop' | xargs git branch -d
     current-branch = !git symbolic-ref --short HEAD
+    all-tags = !"git ls-remote --tags 2>/dev/null | grep -v '\\^{}' | perl -ple 's#.*refs/tags/([A-Za-z0-9_-]+)#$1#'"
 [push]
     default = simple
 [ghq]
