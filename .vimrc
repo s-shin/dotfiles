@@ -37,6 +37,7 @@ colorscheme wombat256mod
 set title
 set laststatus=2
 set incsearch
+set hlsearch
 " http://qiita.com/omega999/items/23aec6a7f6d6735d033f
 set backspace=indent,eol,start
 " indent
