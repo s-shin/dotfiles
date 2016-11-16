@@ -34,14 +34,6 @@ for dotlangenv in $(ls -a ~ | grep -e "^\.[a-z]\+env$"); do
     fi
 done
 
-# go (recommends brew & symlink)
-export GOPATH=$HOME/.go
-export GOBIN=$HOME/.go/bin
-export PATH=$HOME/.go/bin:$PATH
-if [[ -d $HOME/.ghq ]]; then
-    export GOPATH=$GOPATH:$HOME/.ghq
-fi
-
 # prompt
 #export PS1="[\u@\h:\w]\n$ "
 # with git-prompt
@@ -61,3 +53,4 @@ export PS1="${psBegin}${psBody}${psEnd} \033[1;30m${psIfGit}\033[0m\n\$ "
 [[ -f $HOME/.bashrc ]] && . $HOME/.bashrc
 
 # . $HOME/dotfiles/.bash_profile
+

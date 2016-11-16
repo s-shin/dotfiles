@@ -30,6 +30,16 @@ for dotlangenv in $(ls -a ~ | grep -e "^\.[a-z]\+env$"); do
   fi
 done
 
+# gvm
+. $HOME/.gvm/scripts/gvm
+# modify GOPATH here since gvm init GOPATH.
+export GOPATH=$GOPATH:$HOME/.go
+export GOBIN=$HOME/.go/bin
+export PATH=$HOME/.go/bin:$PATH
+if [[ -d $HOME/.ghq ]]; then
+    export GOPATH=$GOPATH:$HOME/.ghq
+fi
+
 # alias
 alias ls="ls -G"
 alias ll="ls -lG"
