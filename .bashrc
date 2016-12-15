@@ -31,7 +31,9 @@ for dotlangenv in $(ls -a ~ | grep -e "^\.[a-z]\+env$"); do
 done
 
 # gvm
-. $HOME/.gvm/scripts/gvm
+if [[ -f $HOME/.gvm/scripts/gvm ]]; then
+  . $HOME/.gvm/scripts/gvm
+fi
 # modify GOPATH here since gvm init GOPATH.
 export GOPATH=$GOPATH:$HOME/.go
 export GOBIN=$HOME/.go/bin
