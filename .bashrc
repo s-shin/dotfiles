@@ -54,5 +54,11 @@ alias gitc='git symbolic-ref --short HEAD'
 #alias hubc='hub compare $(gitb)...$(gitc)'
 alias hubc='hub compare $(gitb)...$(gitc)'
 
+sshq() {
+  if name="$(cat ~/.ssh/config | grep -E 'Host\s' | grep -v '*' | perl -ple 's/^Host\s+(.+)$/$1/' | peco)"; then
+    ssh "$name"
+  fi
+}
+
 # . $HOME/dotfiles/.bashrc
 
