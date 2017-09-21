@@ -19,6 +19,7 @@ do ->
   ENV = [
     "PATH"
     "GOPATH"
+    "GOROOT"
   ]
 
   result = spawnSync process.env.SHELL, ["-lc", "printenv"]
