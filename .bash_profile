@@ -49,6 +49,11 @@ psIfGit='$(if git status &>/dev/null; then echo "(git:"$(__git_ps1 '%s')")"; fi)
 psEnd="\033[0;37m]\033[0m"
 export PS1="${psBegin}${psBody}${psEnd} \033[1;30m${psIfGit}\033[0m\n\$ "
 
+# vscode
+if [[ -d "/Applications/Visual Studio Code.app" ]]; then
+  export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+fi
+
 # .bashrc
 [[ -f $HOME/.bashrc ]] && . $HOME/.bashrc
 

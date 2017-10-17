@@ -1,0 +1,17 @@
+{
+    "editor.fontFamily": "'MyricaM M', 'Ricty Discord', Ricty, Consolas",
+    "editor.fontSize": 14,
+    "editor.rulers": [
+        80
+    ],
+    "window.zoomLevel": 1,
+    "vim.disableAnnoyingNeovimMessage": true,
+    // useCtrlKeysをtrueにした上でctrl+dをkeybindings.jsonで上書きすると期待の動作になる
+    "vim.useCtrlKeys": true,
+    "vim.handleKeys": {
+        "<C-f>": false,
+        "<C-n>": false,
+        "<C-e>": false,
+        "<C-a>": false
+    }
+}
