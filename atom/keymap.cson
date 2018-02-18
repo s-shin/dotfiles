@@ -22,3 +22,12 @@
 
 'atom-text-editor.vim-mode.insert-mode':
   'ctrl-y': 'core:paste'
+
+'.find-and-replace':
+  'ctrl-[': 'find-and-replace:toggle'
+  
+'atom-text-editor[data-grammar~="go"]:not([mini])':
+  'alt-d': 'editor:delete-to-end-of-word'
+
+'.platform-darwin':
+  'cmd-¥': 'tree-view:toggle'

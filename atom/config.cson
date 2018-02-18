@@ -1,64 +1,133 @@
 "*":
-  "exception-reporting":
-    userId: "732b551e-8453-551d-1e0c-09ffd8904786"
-  "release-notes":
-    viewedVersion: "0.94.0"
-  welcome:
-    showOnStartup: false
-  metrics:
-    userId: "89f80c803b5f4ba9e1f073889ce91df45916059d"
+  "atom-beautify":
+    _analyticsUserId: "16a5fac9-e842-4364-884e-7b6e46c18e36"
+  "atom-package-deps":
+    ignored: []
+  "atom-ternjs":
+    excludeLowerPriorityProviders: true
+    inlineFnCompletion: false
+  "atom-typescript": {}
+  "autocomplete-plus": {}
+  "clang-format":
+    style: "Google"
   core:
     disabledPackages: [
       "atom-color-highlight"
       "linter-jsxhint"
       "linter-jshint"
+      "linter-kotlin"
+      "atom-ctags"
+      "activate-power-mode"
+      "terminal-plus"
+      "script"
+      "atom-ternjs"
+      "vim-mode"
+      "linter-perl-lint"
     ]
-  whitespace:
-    removeTrailingWhitespace: false
+    packagesWithKeymapsDisabled: [
+      "blame"
+      "godoc"
+    ]
+    telemetryConsent: "no"
+    titleBar: "custom"
   editor:
     fontFamily: "Ricty Discord"
-    showInvisibles: true
-    showIndentGuide: true
+    fontSize: 13
     invisibles: {}
-    fontSize: 12
-  "linter-perl":
-    executeCommandViaShell: true
-    lintOptions: "no-bare-subs,no-context"
-    autoDetectCarton: true
-  tag:
-    "closeTagOn </": false
-  "autocomplete-plus":
-    enableAutoActivation: false
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "732b551e-8453-551d-1e0c-09ffd8904786"
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
+  "git-plus":
+    general:
+      _analyticsUserId: "526ff9be-511f-4502-9061-58bd0e460c5a"
+  "go-plus":
+    currentPanelHeight: "18.39214380825566vh"
+    lintOnSave: false
+    panelDisplayMode: "closed"
+    showPanel: false
+    syntaxCheckOnSave: false
+    test:
+      runTestsOnSave: false
+    vetOnSave: false
+  "highlight-column":
+    enableHighlight: false
+    opacity: 0.15
+  hyperclick:
+    darwinTriggerKeys: "ctrlKey"
+  jumpy:
+    highContrast: true
   linter:
     subtleLinterErrors: [
       "php"
       "jshint"
     ]
-  "local-settings":
-    autoEnable: false
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
-  "atom-beautify":
-    _analyticsUserId: "16a5fac9-e842-4364-884e-7b6e46c18e36"
-  "highlight-column":
-    opacity: 0.15
-    enableHighlight: false
-  "tree-view": {}
-  react: {}
+    lintHtmlFiles: true
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
   "linter-jsxhint":
     harmony: true
-".html.php.text":
-  editor:
-    tabLength: 4
-".shell.source":
-  "linter-eslint":
-    disableWhenNoEslintrcFileInPath: true
-".html.php.text":
+  "linter-kotlin": {}
+  "linter-perl":
+    autoDetectCarton: true
+    executeCommandViaShell: true
+    lintOptions: "no-bare-subs,no-context"
+  "linter-perl-misc": {}
+  "linter-ui-default":
+    panelHeight: 124
+    showPanel: true
+    tooltipFollows: "Mouse"
+  "local-settings": {}
+  metrics:
+    userId: "89f80c803b5f4ba9e1f073889ce91df45916059d"
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+  nuclide:
+    remoteProjectsConfig: []
+  react: {}
+  "release-notes":
+    viewedVersion: "0.94.0"
+  "spell-check": {}
+  "starred-projects":
+    starredProjectPath: [
+      "/Users/shin/.ghq/src/github.com/s-shin/starred-projects"
+      "/Users/shin/dotfiles"
+    ]
+  tabs: {}
+  tag:
+    "closeTagOn </": false
+  "todo-show": {}
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
+  whitespace:
+    removeTrailingWhitespace: false
+".Kotlin.source":
   editor:
     tabLength: 4
 ".apache-config.source":
+  editor:
+    tabLength: 4
+".bison.source":
+  editor:
+    tabLength: 4
+    tabType: "hard"
+".gfm.source":
+  editor:
+    tabLength: 4
+".go.source":
+  editor:
+    tabLength: 4
+    tabType: "hard"
+".html.php.text":
   editor:
     tabLength: 4
 ".perl.source":
@@ -67,3 +136,6 @@
 ".php.source":
   editor:
     tabLength: 4
+".shell.source":
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true
