@@ -19,6 +19,8 @@
 'atom-text-editor':
   'ctrl-o': 'editor:newline-above'
   'ctrl-y': 'core:paste'
+  'ctrl-l': 'editor:scroll-to-cursor'
+  'alt-d': 'editor:delete-to-end-of-word',
 
 'atom-text-editor.vim-mode.insert-mode':
   'ctrl-y': 'core:paste'
