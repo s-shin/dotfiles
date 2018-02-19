@@ -33,3 +33,12 @@ for file in \
     ln -s $HOME/dotfiles/atom/$file $HOME/.atom/$file
   fi
 done
+
+# vscode
+vscode_user_dir="${HOME}/Library/Application Support/Code/User"
+if [[ -d "$vscode_user_dir" ]]; then
+  for file in settings.json keybindings.json; do
+    mv "${vscode_user_dir}/${file}" "${vscode_user_dir}/${file}.bk"
+    ln -s "${HOME}/dotfiles/vscode/${file}" "${vscode_user_dir}/${file}"
+  done
+fi
