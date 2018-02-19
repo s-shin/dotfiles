@@ -4,8 +4,7 @@
     "editor.rulers": [
         80
     ],
-    "window.zoomLevel": 1,
-    "vim.disableAnnoyingNeovimMessage": true,
+    "editor.renderIndentGuides": true,
     // useCtrlKeysをtrueにした上でctrl+dをkeybindings.jsonで上書きすると期待の動作になる
     "vim.useCtrlKeys": true,
     "vim.handleKeys": {
@@ -13,5 +12,21 @@
         "<C-n>": false,
         "<C-e>": false,
         "<C-a>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["<C-d>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "deleteRight",
+                    "args": []
+                }
+            ]
+        }
+    ],
+    "window.zoomLevel": 0,
+    "[html]": {
+        "editor.tabSize": 2
     }
 }
