@@ -23,6 +23,26 @@
                     "args": []
                 }
             ]
+        },
+        {
+            "before": ["<Right>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "cursorRight",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<Left>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "cursorLeft",
+                    "args": []
+                }
+            ]
         }
     ],
     "window.zoomLevel": 0,
