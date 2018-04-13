@@ -19,6 +19,11 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=9999
 
+bh() {
+    local cmd="$(history | sort -rk 2 | uniq -f1 | sort -nr | perl -ple 's/^\s*[0-9]+\s+//' | peco)"
+    if [[ -n "$cmd" ]]; then $cmd; fi
+}
+
 # enable forward incremental search
 # http://maruta.be/intfloat_staff/47
 # http://stackoverflow.com/a/10022396
