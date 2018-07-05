@@ -2,7 +2,7 @@
 
 # global
 export TERM="xterm-256color"
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$HOME/dotfiles/bin:$PATH"
 
 # homebrew
 # http://rcmdnk.github.io/blog/2016/04/28/computer-mac-homebrew/
@@ -21,7 +21,7 @@ export HISTSIZE=9999
 
 bh() {
     local cmd="$(history | sort -rk 2 | uniq -f1 | sort -nr | perl -ple 's/^\s*[0-9]+\s+//' | peco)"
-    if [[ -n "$cmd" ]]; then $cmd; fi
+    if [[ -n "$cmd" ]]; then eval "$cmd"; fi
 }
 
 # enable forward incremental search
