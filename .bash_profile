@@ -21,6 +21,7 @@ export HISTSIZE=9999
 
 bh() {
     local cmd="$(history | sort -rk 2 | uniq -f1 | sort -nr | perl -ple 's/^\s*[0-9]+\s+//' | peco)"
+    echo "$cmd"
     if [[ -n "$cmd" ]]; then eval "$cmd"; fi
 }
 
