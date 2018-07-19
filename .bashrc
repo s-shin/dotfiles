@@ -60,5 +60,22 @@ sshq() {
   fi
 }
 
+# markdown viewer
+mdview() {
+  chkcmd() { type "$1" >/dev/null 2>/dev/null; }
+  if chkcmd pandoc; then
+    if chkcmd lynx ; then
+      pandoc "$@" | lynx -stdin
+      return
+    fi
+    if chkcmd w3m; then
+      pandoc "$@" | w3m -T text/html
+      return
+    fi
+    pandoc -t plain "$@" | less
+  fi
+  less "$@"
+}
+
 # . $HOME/dotfiles/.bashrc
 
