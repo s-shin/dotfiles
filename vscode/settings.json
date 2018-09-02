@@ -6,12 +6,13 @@
     ],
     "editor.renderIndentGuides": true,
     // useCtrlKeysをtrueにした上でctrl+dをkeybindings.jsonで上書きすると期待の動作になる
-    "vim.useCtrlKeys": false,
+    "vim.useCtrlKeys": true,
     "vim.handleKeys": {
         "<C-f>": false,
         "<C-n>": false,
         "<C-e>": false,
-        "<C-a>": false
+        "<C-a>": false,
+        "<C-k>": false
     },
     // "vim.insertModeKeyBindings": [
     //     {
@@ -48,5 +49,13 @@
     "window.zoomLevel": 0,
     "[html]": {
         "editor.tabSize": 2
-    }
+    },
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "editor.tabSize": 2,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "workbench.iconTheme": "vscode-icons",
+    "files.insertFinalNewline": true
 }
