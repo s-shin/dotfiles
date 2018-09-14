@@ -1,0 +1,41 @@
+#!/bin/bash
+set -eu
+
+usage() {
+  cat <<EOT
+Usage: $0 [-s] [<grep-word>]
+EOT
+}
+
+main() {
+  local FILTER="${FILTER:-peco --select-1}"
+  local GREP="${GREP:-grep}"
+  local listcmd="ls-files"
+  local column=1
+  local grep_word=""
+  local line=""
+
+  local npos=0
+  while (($# > 0)); do
+    case "$1" in
+      --help ) usage; exit 1;;
+      -s ) listcmd="status --short"; column=2;;
+      -l ) line="#L$2"; shift;;
+      * )
+        case "$((++npos))" in
+          1 ) grep_word="$1";;
+        esac
+    esac
+    shift
+  done
+
+  local path
+  path="$(git ${listcmd} | $GREP "$grep_word" | $FILTER | awk "{print \$${column}}")"
+  if [[ -z "$path" ]]; then
+    return 1
+  fi
+
+  echo "tree/$(git symbolic-ref --short HEAD)/${path}${line}"
+}
+
+main "$@"
