@@ -1,0 +1,8 @@
+BriteSnow.vscode-toggle-quotes
+CoenraadS.bracket-pair-colorizer
+DaGhostman.vs-treeview
+MS-CEINTL.vscode-language-pack-ja
+ms-vscode.atom-keybindings
+robertohuertasm.vscode-icons
+sleistner.vscode-fileutils
+vscodevim.vim
