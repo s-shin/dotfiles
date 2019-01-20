@@ -28,7 +28,7 @@ setup.bash() {
   for file in \
     .bashrc .bash_profile
   do
-    local src="${HOME}/dotfiles/${file}"
+    local src=". \"\${HOME}/dotfiles/${file}\""
     if ! (grep "$src" "${HOME}/${file}" >/dev/null); then
       printf "${src}\n\n" >> "${HOME}/${file}"
     fi
