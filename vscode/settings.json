@@ -14,7 +14,7 @@
         "<C-a>": false,
         "<C-k>": false
     },
-    "vim.whichwrap": "h,l,<,>,[,]",
+    "vim.whichwrap": "<,>,[,]",
     "window.zoomLevel": 0,
     "[html]": {
         "editor.tabSize": 2
