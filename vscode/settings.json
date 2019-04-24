@@ -14,38 +14,7 @@
         "<C-a>": false,
         "<C-k>": false
     },
-    // "vim.insertModeKeyBindings": [
-    //     {
-    //         "before": ["<C-d>"],
-    //         "after": [],
-    //         "commands": [
-    //             {
-    //                 "command": "deleteRight",
-    //                 "args": []
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         "before": ["<Right>"],
-    //         "after": [],
-    //         "commands": [
-    //             {
-    //                 "command": "cursorRight",
-    //                 "args": []
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         "before": ["<Left>"],
-    //         "after": [],
-    //         "commands": [
-    //             {
-    //                 "command": "cursorLeft",
-    //                 "args": []
-    //             }
-    //         ]
-    //     }
-    // ],
+    "vim.whichwrap": "h,l,<,>,[,]",
     "window.zoomLevel": 0,
     "[html]": {
         "editor.tabSize": 2
@@ -63,5 +32,6 @@
     "[markdown]": {
         "editor.tabSize": 4,
     },
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }
