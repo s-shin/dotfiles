@@ -54,9 +54,21 @@ alias gitc='git symbolic-ref --short HEAD'
 #alias hubc='hub compare $(gitb)...$(gitc)'
 alias hubc='hub compare $(gitb)...$(gitc)'
 
+ssh.list() {
+  cat ~/.ssh/config | grep -E 'Host\s' | grep -v '*' | perl -ple 's/^Host\s+(.+)$/$1/'
+}
+
 sshq() {
-  if name="$(cat ~/.ssh/config | grep -E 'Host\s' | grep -v '*' | perl -ple 's/^Host\s+(.+)$/$1/' | peco)"; then
+  local name
+  if name="$(ssh.list | peco)" && [[ -n "$name" ]]; then
     ssh "$name"
+  fi
+}
+
+ssh.close() {
+  local name
+  if name="$(ssh.list | peco)" && [[ -n "$name" ]]; then
+    ssh -O exit "$name"
   fi
 }
 
