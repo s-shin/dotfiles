@@ -4,5 +4,17 @@
     { "key": "cmd+k cmd+b", "command": "workbench.action.focusPreviousGroup" },
     { "key": "ctrl+d", "command": "deleteRight", "when": "editorTextFocus && !editorReadonly" },
     { "key": "ctrl+u", "command": "extension.vim_ctrl+u", "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'" },
-    { "key": "ctrl+d", "command": "extension.vim_ctrl+d", "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'" }
+    {
+        "key": "ctrl+d",
+        "command": "extension.vim_ctrl+d",
+        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "shift+cmd+2",
+        "command": "editor.togglequotes"
+    },
+    {
+        "key": "shift+cmd+7",
+        "command": "-editor.togglequotes"
+    }
 ]
