@@ -1,0 +1,54 @@
+{
+  "title": "My Default",
+  "parameters": {
+    "basic.simultaneous_threshold_milliseconds": 50,
+    "basic.to_delayed_action_delay_milliseconds": 500,
+    "basic.to_if_alone_timeout_milliseconds": 1000,
+    "basic.to_if_held_down_threshold_milliseconds": 500
+  },
+  "rules": [
+    {
+      "description": "global settings",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "international3",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "international3",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
