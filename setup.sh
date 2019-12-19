@@ -38,10 +38,10 @@ setup.bash() {
 setup.zsh() {
   local file
   for file in \
-    .zshrc
+    .zshrc .zshenv
   do
     local src=". \"\${HOME}/dotfiles/${file}\""
-    if ! (grep "$src" "${HOME}/${file}" >/dev/null); then
+    if ! (grep "$src" "${HOME}/${file}" >/dev/null 2>&1); then
       echo -ne "${src}\n\n" >>"${HOME}/${file}"
     fi
   done

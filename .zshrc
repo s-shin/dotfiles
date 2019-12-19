@@ -10,18 +10,20 @@ precmd () { vcs_info }
 PROMPT=$'[%n@%m:%~] %F{240}${vcs_info_msg_0_}%f
 $ '
 
-export PATH="$HOME/bin:/usr/local/bin:$HOME/dotfiles/bin:$PATH"
-
-# vscode
-if [[ -d "/Applications/Visual Studio Code.app" ]]; then
-  export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-fi
-
 # alias
 alias ls="ls -G"
 alias ll="ls -lhG"
 alias la="ls -alG"
+alias gitc='git symbolic-ref --short HEAD'
 
+# completions
 if [[ -d /usr/local/share/zsh-completions ]]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
+
+ghql() {
+  local p="$(ghq list | peco)"
+  if [[ -n "$p" ]]; then
+    cd "$(ghq root)/${p}"
+  fi
+}
