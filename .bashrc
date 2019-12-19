@@ -9,7 +9,7 @@ function source_url() {
   if [[ ! -s $file ]]; then
     curl -sLO $url
   fi
-  . $file
+  . "${tmpdir}/${file}"
   cd - > /dev/null
 }
 

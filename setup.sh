@@ -30,7 +30,19 @@ setup.bash() {
   do
     local src=". \"\${HOME}/dotfiles/${file}\""
     if ! (grep "$src" "${HOME}/${file}" >/dev/null); then
-      printf "${src}\n\n" >> "${HOME}/${file}"
+      echo -ne "${src}\n\n" >>"${HOME}/${file}"
+    fi
+  done
+}
+
+setup.zsh() {
+  local file
+  for file in \
+    .zshrc
+  do
+    local src=". \"\${HOME}/dotfiles/${file}\""
+    if ! (grep "$src" "${HOME}/${file}" >/dev/null); then
+      echo -ne "${src}\n\n" >>"${HOME}/${file}"
     fi
   done
 }
@@ -77,7 +89,9 @@ setup.vscode() {
   local vscode_user_dir="${HOME}/Library/Application Support/Code/User"
   if [[ -d "$vscode_user_dir" ]]; then
     for file in settings.json keybindings.json; do
-      mv "${vscode_user_dir}/${file}" "${vscode_user_dir}/${file}.bk"
+      if [[ -f "${vscode_user_dir}/${file}" ]]; then
+        mv "${vscode_user_dir}/${file}" "${vscode_user_dir}/${file}.bk"
+      fi
       ln -s "${HOME}/dotfiles/vscode/${file}" "${vscode_user_dir}/${file}"
     done
   fi
