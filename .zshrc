@@ -21,3 +21,7 @@ fi
 alias ls="ls -G"
 alias ll="ls -lhG"
 alias la="ls -alG"
+
+if [[ -d /usr/local/share/zsh-completions ]]; then
+  fpath=(/usr/local/share/zsh-completions $fpath)
+fi
