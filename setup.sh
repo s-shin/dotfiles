@@ -97,6 +97,16 @@ setup.vscode() {
   fi
 }
 
+setup.karabiner() {
+  if [[ "$(uname)" != Darwin ]]; then
+    log.i 'Only macOS supported, skipped.'
+    return
+  fi
+  local p='.config/karabiner/assets/complex_modifications'
+  mkdir -p "${HOME}/${p}"
+  ln -s "${HOME}/dotfiles/${p}/my_default.json" "${HOME}/${p}/"
+}
+
 while IFS=$'\n' read -r line; do TARGETS+=("$line"); done < <(compgen -A function setup. | cut -d. -f2)
 
 help() {
