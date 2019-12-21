@@ -20,12 +20,14 @@ alias gitc='git symbolic-ref --short HEAD'
 
 ### Completions
 
-autoload -U compinit
-compinit -u
+autoload -U compinit && compinit -u
 
 if [[ -d /usr/local/share/zsh-completions ]]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
+
+# https://unix.stackexchange.com/a/2180
+zstyle ":completion:*:commands" rehash 1
 
 ### Helpers
 
