@@ -2,7 +2,8 @@
     "editor.fontFamily": "'MyricaM M', 'Myrica M', 'Ricty Discord', Ricty, Consolas, monospace",
     "editor.fontSize": 15,
     "editor.rulers": [
-        80, 120,
+        80,
+        120,
     ],
     "editor.renderIndentGuides": true,
     // useCtrlKeysをtrueにした上でctrl+dをkeybindings.jsonで上書きすると期待の動作になる
@@ -40,8 +41,14 @@
     "eslint.validate": [
         "javascript",
         "javascriptreact",
-        {"language": "typescript", "autoFix": false },
-        {"language": "typescriptreact", "autoFix": false },
+        {
+            "language": "typescript",
+            "autoFix": false
+        },
+        {
+            "language": "typescriptreact",
+            "autoFix": false
+        },
     ],
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
