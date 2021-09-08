@@ -30,7 +30,19 @@ setup.bash() {
   do
     local src=". \"\${HOME}/dotfiles/${file}\""
     if ! (grep "$src" "${HOME}/${file}" >/dev/null); then
-      printf "${src}\n\n" >> "${HOME}/${file}"
+      echo -ne "${src}\n\n" >>"${HOME}/${file}"
+    fi
+  done
+}
+
+setup.zsh() {
+  local file
+  for file in \
+    .zshrc .zshenv
+  do
+    local src=". \"\${HOME}/dotfiles/${file}\""
+    if ! (grep "$src" "${HOME}/${file}" >/dev/null 2>&1); then
+      echo -ne "${src}\n\n" >>"${HOME}/${file}"
     fi
   done
 }
@@ -83,6 +95,16 @@ setup.vscode() {
       ln -s "${HOME}/dotfiles/vscode/${file}" "${vscode_user_dir}/${file}"
     done
   fi
+}
+
+setup.karabiner() {
+  if [[ "$(uname)" != Darwin ]]; then
+    log.i 'Only macOS supported, skipped.'
+    return
+  fi
+  local p='.config/karabiner/assets/complex_modifications'
+  mkdir -p "${HOME}/${p}"
+  ln -s "${HOME}/dotfiles/${p}/my_default.json" "${HOME}/${p}/"
 }
 
 while IFS=$'\n' read -r line; do TARGETS+=("$line"); done < <(compgen -A function setup. | cut -d. -f2)
