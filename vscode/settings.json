@@ -1,6 +1,6 @@
 {
-    "editor.fontFamily": "'MyricaM M', 'Myrica M', 'Ricty Discord', Ricty, Consolas, monospace",
-    "editor.fontSize": 15,
+    "editor.fontFamily": "'Jetbrains Mono', GenShinGothic-Monospace-Medium, 'MyricaM M', 'Ricty Discord', monospace",
+    "editor.fontSize": 13,
     "editor.rulers": [
         80,
         120,
@@ -16,7 +16,6 @@
         "<C-k>": false
     },
     "vim.whichwrap": "<,>,[,]",
-    "window.zoomLevel": 0,
     "[html]": {
         "editor.tabSize": 2
     },
@@ -32,10 +31,16 @@
     "[markdown]": {
         "editor.tabSize": 4,
     },
+    "[python]": {
+        "editor.tabSize": 4,
+    },
+    "[csharp]": {
+        "editor.tabSize": 4,
+    },
     "breadcrumbs.enabled": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "vsicons.dontShowNewVersionMessage": true,
     "eslint.validate": [
@@ -58,4 +63,30 @@
     },
     "workbench.tree.indent": 16,
     "editor.formatOnSave": true,
+    "plantuml.server": "http://localhost:8090",
+    "plantuml.render": "PlantUMLServer",
+    "plantuml.urlFormat": "svg",
+    "workbench.colorTheme": "GitHub Dark",
+    "cmake.configureOnOpen": false,
+    "shellcheck.customArgs": [
+        "-x"
+    ],
+    "explorer.autoReveal": "focusNoScroll",
+    "[yaml]": {
+        "editor.defaultFormatter": null,
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        }
+    },
+    "[jenkinsfile]": {
+        "editor.tabSize": 4,
+    },
+    "plantuml.commandArgs": [],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontLigatures": true,
 }
