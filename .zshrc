@@ -1,4 +1,33 @@
-### Prompt
+### Environment Variables
+
+# https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
+if [[ -d "/Applications/Visual Studio Code.app" ]]; then
+  export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+fi
+
+# https://docs.brew.sh/Analytics
+export HOMEBREW_NO_ANALYTICS=1
+
+### Runtime Version Managers
+
+if type brew >/dev/null 2>&1; then
+  if [[ -f "$(brew --prefix)/opt/asdf/libexec/asdf.sh" ]]; then
+    . "$(brew --prefix)/opt/asdf/libexec/asdf.sh"
+  fi
+fi
+
+for dotlangenv in $(ls -a "$HOME" | grep -e "^\.[a-z]\+env$"); do
+  langenv="$(echo "$dotlangenv" | cut -c 2-)"
+  if [[ -d "$HOME/.${langenv}" ]]; then
+    eval "$(${langenv} init -)"
+  fi
+done
+
+if [[ -f "$HOME/.gvm/scripts/gvm" ]]; then
+  . "$HOME/.gvm/scripts/gvm"
+fi
+
+### zsh
 
 setopt prompt_subst
 autoload -Uz vcs_info
@@ -7,33 +36,46 @@ zstyle ':vcs_info:git:*' stagedstr '!'
 zstyle ':vcs_info:git:*' unstagedstr '+'
 zstyle ':vcs_info:*' formats '(%c%u%b)'
 zstyle ':vcs_info:*' actionformats '(%b|%a)'
-precmd () { vcs_info }
-
+precmd() { vcs_info }
 PROMPT=$'[%n@%m:%~] %F{240}${vcs_info_msg_0_}%f
 $ '
 
-### Aliases
-
-alias ls="ls -G"
-alias lh="ls -alhG"
-alias gitc='git symbolic-ref --short HEAD'
-
-### Completions
-
-autoload -U compinit && compinit -u
-
-if [[ -d /usr/local/share/zsh-completions ]]; then
-  fpath=(/usr/local/share/zsh-completions $fpath)
+# zsh-completions
+if type brew >/dev/null 2>&1; then
+  if [[ -f "$(brew --prefix)/share/zsh-completions" ]]; then
+    fpath=("$(brew --prefix)/share/zsh-completions" "$fpath")
+    fpath=("$(brew --prefix)/share/zsh/site-functions" "$path")
+  fi
 fi
 
-# https://unix.stackexchange.com/a/2180
-zstyle ":completion:*:commands" rehash 1
+autoload -Uz compinit && compinit
 
-### Helpers
+### Aliases & Helpers
+
+alias ls='ls -G'
+alias lh='ls -alhG'
+alias gitb='git branch -a | peco | sed -e "s/\* //g" | awk "{print \$1}" | perl -ple "s%remotes/[^/]+/%%"'
+alias gitc='git symbolic-ref --short HEAD'
+alias hubc='hub compare $(gitb)...$(gitc)'
 
 ghql() {
   local p="$(ghq list | peco)"
   if [[ -n "$p" ]]; then
     cd "$(ghq root)/${p}"
+  fi
+}
+
+ssh-list() { cat ~/.ssh/config | grep -E '^Host\s' | grep -v '*' | perl -ple 's/^Host\s+(.+)$/$1/'; }
+ssh-close() { ssh -O exit "$name"; }
+sshq() {
+  local name
+  if name="$(ssh-list | peco)" && [[ -n "$name" ]]; then
+    ssh "$name"
+  fi
+}
+ssh.to() {
+  local name
+  if name="$(compgen -A function ssh.to. | cut -f3 -d. | peco)" && [[ -n "$name" ]]; then
+    "ssh.to.${name}"
   fi
 }
