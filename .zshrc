@@ -1,4 +1,6 @@
-### Environment Variables
+# NOTE: .zshenv is for login and interactive shells.
+
+### General Environment Variables
 
 # https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
 if [[ -d "/Applications/Visual Studio Code.app" ]]; then
@@ -16,6 +18,7 @@ if type brew >/dev/null 2>&1; then
   fi
 fi
 
+# TODO: remove
 for dotlangenv in $(ls -a "$HOME" | grep -e "^\.[a-z]\+env$"); do
   langenv="$(echo "$dotlangenv" | cut -c 2-)"
   if [[ -d "$HOME/.${langenv}" ]]; then
@@ -29,6 +32,7 @@ fi
 
 ### zsh
 
+# prompt
 setopt prompt_subst
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -48,7 +52,23 @@ if type brew >/dev/null 2>&1; then
   fi
 fi
 
+# completion
 autoload -Uz compinit && compinit
+autoload -Uz bashcompinit && bashcompinit
+zstyle ":completion:*:commands" rehash 1
+
+# history
+HISTFILE="${HOME}/.zsh_history"
+SAVEHIST=10000
+setopt hist_no_store
+setopt hist_ignore_dups
+setopt hist_verify
+setopt extended_history
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_ignore_all_dups
+setopt inc_append_history
+setopt share_history
 
 ### Aliases & Helpers
 
@@ -65,6 +85,7 @@ ghql() {
   fi
 }
 
+# TODO: redesign
 ssh-list() { cat ~/.ssh/config | grep -E '^Host\s' | grep -v '*' | perl -ple 's/^Host\s+(.+)$/$1/'; }
 ssh-close() { ssh -O exit "$name"; }
 sshq() {
