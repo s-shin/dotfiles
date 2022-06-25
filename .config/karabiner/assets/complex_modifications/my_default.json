@@ -11,6 +11,7 @@
       "description": "global settings",
       "manipulators": [
         {
+          "description": "Change Ctrl+[ to ESC",
           "from": {
             "key_code": "close_bracket",
             "modifiers": {
@@ -31,12 +32,7 @@
         },
         {
           "from": {
-            "key_code": "international3",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
+            "key_code": "international3"
           },
           "to": [
             {
@@ -44,6 +40,22 @@
               "modifiers": [
                 "option"
               ]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "international3",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "international3"
             }
           ],
           "type": "basic"
