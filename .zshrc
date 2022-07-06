@@ -10,6 +10,10 @@ fi
 # https://docs.brew.sh/Analytics
 export HOMEBREW_NO_ANALYTICS=1
 
+export FILTER=fzf
+# export FZF_DEFAULT_OPTS='--bind ctrl-k:kill-line --height 40% --layout=reverse'
+export FZF_DEFAULT_OPTS='--bind ctrl-k:kill-line --layout=reverse'
+
 ### Runtime Version Managers
 
 if type brew >/dev/null 2>&1; then
@@ -31,6 +35,8 @@ if [[ -f "$HOME/.gvm/scripts/gvm" ]]; then
 fi
 
 ### zsh
+
+export WORDCHARS=""
 
 # prompt
 setopt prompt_subst
@@ -70,6 +76,15 @@ setopt hist_ignore_all_dups
 setopt inc_append_history
 setopt share_history
 
+history-all() { fc -li 1 "$@"; }
+
+select-history-by-fzf() {
+  BUFFER="$(history -nr 1 | fzf --no-sort +m --query "$LBUFFER")"
+  CURSOR="${#BUFFER}"
+}
+zle -N select-history-by-fzf
+bindkey '^r' select-history-by-fzf
+
 ### Aliases & Helpers
 
 alias ls='ls -G'
@@ -96,7 +111,14 @@ sshq() {
 }
 ssh.to() {
   local name
-  if name="$(compgen -A function ssh.to. | cut -f3 -d. | peco)" && [[ -n "$name" ]]; then
+  if name="$(compgen -A 'function' ssh.to. | cut -f3 -d. | peco)" && [[ -n "$name" ]]; then
     "ssh.to.${name}"
   fi
 }
+
+### zplug
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+if [[ -d "$ZPLUG_HOME" ]]; then
+  source "${ZPLUG_HOME}/init.zsh"
+fi
