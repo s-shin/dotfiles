@@ -1,0 +1,19 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+
+[directory]
+# truncation_symbol = ".../"
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[cmake]
+disabled = true

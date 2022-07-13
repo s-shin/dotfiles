@@ -11,7 +11,6 @@ fi
 export HOMEBREW_NO_ANALYTICS=1
 
 export FILTER=fzf
-# export FZF_DEFAULT_OPTS='--bind ctrl-k:kill-line --height 40% --layout=reverse'
 export FZF_DEFAULT_OPTS='--bind ctrl-k:kill-line --layout=reverse'
 
 ### Runtime Version Managers
@@ -38,19 +37,7 @@ fi
 
 export WORDCHARS=""
 
-# prompt
-setopt prompt_subst
-autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr '!'
-zstyle ':vcs_info:git:*' unstagedstr '+'
-zstyle ':vcs_info:*' formats '(%c%u%b)'
-zstyle ':vcs_info:*' actionformats '(%b|%a)'
-precmd() { vcs_info }
-PROMPT=$'[%n@%m:%~] %F{240}${vcs_info_msg_0_}%f
-$ '
-
-# zsh-completions
+# zsh completions
 if type brew >/dev/null 2>&1; then
   if [[ -f "$(brew --prefix)/share/zsh-completions" ]]; then
     fpath=("$(brew --prefix)/share/zsh-completions" "$fpath")
@@ -58,7 +45,7 @@ if type brew >/dev/null 2>&1; then
   fi
 fi
 
-# completion
+# compinit
 autoload -Uz compinit && compinit
 autoload -Uz bashcompinit && bashcompinit
 zstyle ":completion:*:commands" rehash 1
@@ -77,13 +64,6 @@ setopt inc_append_history
 setopt share_history
 
 history-all() { fc -li 1 "$@"; }
-
-select-history-by-fzf() {
-  BUFFER="$(history -nr 1 | fzf --no-sort +m --query "$LBUFFER")"
-  CURSOR="${#BUFFER}"
-}
-zle -N select-history-by-fzf
-bindkey '^r' select-history-by-fzf
 
 ### Aliases & Helpers
 
@@ -116,9 +96,41 @@ ssh.to() {
   fi
 }
 
+# fzf completions
+_fzf_files=()
+if type brew >/dev/null 2>&1; then
+  _fzf_files+=(
+    $(brew --prefix)/opt/fzf/shell/completion.zsh
+    $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
+  )
+fi
+for _fzf_file in "${_fzf_files[@]}"; do
+  if [[ -f "$_fzf_file" ]]; then
+    source "$_fzf_file"
+  fi
+done
+
 ### zplug
 
-export ZPLUG_HOME=/usr/local/opt/zplug
-if [[ -d "$ZPLUG_HOME" ]]; then
-  source "${ZPLUG_HOME}/init.zsh"
+# export ZPLUG_HOME=/usr/local/opt/zplug
+# if [[ -d "$ZPLUG_HOME" ]]; then
+#  source "${ZPLUG_HOME}/init.zsh"
+# fi
+
+# Starship
+
+if type starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+else
+  # simple prompt
+  setopt prompt_subst
+  autoload -Uz vcs_info
+  zstyle ':vcs_info:git:*' check-for-changes true
+  zstyle ':vcs_info:git:*' stagedstr '!'
+  zstyle ':vcs_info:git:*' unstagedstr '+'
+  zstyle ':vcs_info:*' formats '(%c%u%b)'
+  zstyle ':vcs_info:*' actionformats '(%b|%a)'
+  precmd() { vcs_info }
+  PROMPT=$'[%n@%m:%~] %F{240}${vcs_info_msg_0_}%f
+  $ '
 fi

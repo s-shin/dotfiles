@@ -107,6 +107,11 @@ setup.karabiner() {
   ln -s "${HOME}/dotfiles/${p}/my_default.json" "${HOME}/${p}/"
 }
 
+setup.starship() {
+  mkdir -p "${HOME}/.config"
+  ln -s "${HOME}/dotfiles/starship.toml" "${HOME}/.config/starship.toml"
+}
+
 while IFS=$'\n' read -r line; do TARGETS+=("$line"); done < <(compgen -A function setup. | cut -d. -f2)
 
 help() {
