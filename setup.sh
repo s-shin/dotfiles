@@ -95,6 +95,9 @@ setup.vscode() {
       ln -s "${HOME}/dotfiles/vscode/${file}" "${vscode_user_dir}/${file}"
     done
   fi
+  # Fix cursor problem in vim plugin.
+  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+  defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 }
 
 setup.karabiner() {
