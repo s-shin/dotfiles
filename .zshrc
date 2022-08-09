@@ -1,5 +1,7 @@
 # NOTE: .zshenv is for login and interactive shells.
 
+_has_brew() { type brew >/dev/null 2>&1; }
+
 ### General Environment Variables
 
 # https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
@@ -7,15 +9,17 @@ if [[ -d "/Applications/Visual Studio Code.app" ]]; then
   export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
 
-# https://docs.brew.sh/Analytics
-export HOMEBREW_NO_ANALYTICS=1
+if _has_brew; then
+  # https://docs.brew.sh/Analytics
+  export HOMEBREW_NO_ANALYTICS=1
+fi
 
 export FILTER=fzf
 export FZF_DEFAULT_OPTS='--bind ctrl-k:kill-line --layout=reverse'
 
 ### Runtime Version Managers
 
-if type brew >/dev/null 2>&1; then
+if _has_brew; then
   if [[ -f "$(brew --prefix)/opt/asdf/libexec/asdf.sh" ]]; then
     . "$(brew --prefix)/opt/asdf/libexec/asdf.sh"
   fi
@@ -38,7 +42,7 @@ fi
 export WORDCHARS=""
 
 # zsh completions
-if type brew >/dev/null 2>&1; then
+if _has_brew; then
   if [[ -f "$(brew --prefix)/share/zsh-completions" ]]; then
     fpath=("$(brew --prefix)/share/zsh-completions" "$fpath")
     fpath=("$(brew --prefix)/share/zsh/site-functions" "$path")
@@ -74,7 +78,7 @@ alias gitc='git symbolic-ref --short HEAD'
 alias hubc='hub compare $(gitb)...$(gitc)'
 
 ghql() {
-  local p="$(ghq list | peco)"
+  local p="$(ghq list | $FILTER)"
   if [[ -n "$p" ]]; then
     cd "$(ghq root)/${p}"
   fi
@@ -85,7 +89,7 @@ ssh-list() { cat ~/.ssh/config | grep -E '^Host\s' | grep -v '*' | perl -ple 's/
 ssh-close() { ssh -O exit "$name"; }
 sshq() {
   local name
-  if name="$(ssh-list | peco)" && [[ -n "$name" ]]; then
+  if name="$(ssh-list | $FILTER)" && [[ -n "$name" ]]; then
     ssh "$name"
   fi
 }
@@ -134,3 +138,4 @@ else
   PROMPT=$'[%n@%m:%~] %F{240}${vcs_info_msg_0_}%f
   $ '
 fi
+

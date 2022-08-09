@@ -28,12 +28,11 @@ if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
-
 filetype plugin indent on
+syntax enable
+colorscheme wombat256mod
 
 """ Basic setting
-syntax on
-colorscheme wombat256mod
 set title
 set laststatus=2
 set incsearch
