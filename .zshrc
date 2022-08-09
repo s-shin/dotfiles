@@ -73,8 +73,13 @@ history-all() { fc -li 1 "$@"; }
 
 alias ls='ls -G'
 alias lh='ls -alhG'
-alias gitb='git branch -a | peco | sed -e "s/\* //g" | awk "{print \$1}" | perl -ple "s%remotes/[^/]+/%%"'
 alias gitc='git symbolic-ref --short HEAD'
+
+gitb() {
+  git branch -a | $FILTER | sed -e 's/\* //g' | awk '{print $1}' | perl -ple 's%remotes/[^/]+/%%'
+}
+
+# deprecated
 alias hubc='hub compare $(gitb)...$(gitc)'
 
 ghql() {
@@ -83,6 +88,8 @@ ghql() {
     cd "$(ghq root)/${p}"
   fi
 }
+
+ghc() { open "$(gh browse -n)/compare/$(gitb)...$(gitc)"; }
 
 # TODO: redesign
 ssh-list() { cat ~/.ssh/config | grep -E '^Host\s' | grep -v '*' | perl -ple 's/^Host\s+(.+)$/$1/'; }
