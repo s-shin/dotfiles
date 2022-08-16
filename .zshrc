@@ -80,7 +80,7 @@ gitb() {
 }
 
 # deprecated
-alias hubc='hub compare $(gitb)...$(gitc)'
+# alias hubc='hub compare $(gitb)...$(gitc)'
 
 ghql() {
   local p="$(ghq list | $FILTER)"
@@ -89,7 +89,12 @@ ghql() {
   fi
 }
 
-ghc() { open "$(gh browse -n)/compare/$(gitb)...$(gitc)"; }
+ghc() {
+  local b="$(gitb)"
+  if [[ -n "$b" ]]; then
+    open "$(gh browse -n)/compare/${b}...$(gitc)"
+  fi
+}
 
 # TODO: redesign
 ssh-list() { cat ~/.ssh/config | grep -E '^Host\s' | grep -v '*' | perl -ple 's/^Host\s+(.+)$/$1/'; }
