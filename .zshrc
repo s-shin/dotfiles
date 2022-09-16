@@ -79,8 +79,14 @@ gitb() {
   git branch -a | $FILTER | sed -e 's/\* //g' | awk '{print $1}' | perl -ple 's%remotes/[^/]+/%%'
 }
 
+gitfb() { git fetch -p "$1" "$2":"$2"; }
+
 # deprecated
 # alias hubc='hub compare $(gitb)...$(gitc)'
+
+ghqg() {
+  ghq get --no-recursive "$@"
+}
 
 ghql() {
   local p="$(ghq list | $FILTER)"
