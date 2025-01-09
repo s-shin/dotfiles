@@ -102,6 +102,8 @@ ghc() {
   fi
 }
 
+strip_ascii_color() { perl -pe 's/\e\[[0-9;]*m//g' "$@"; }
+
 # TODO: redesign
 ssh-list() { cat ~/.ssh/config | grep -E '^Host\s' | grep -v '*' | perl -ple 's/^Host\s+(.+)$/$1/'; }
 ssh-close() { ssh -O exit "$name"; }
@@ -117,6 +119,9 @@ ssh.to() {
     "ssh.to.${name}"
   fi
 }
+
+# zed
+alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
 # fzf completions
 _fzf_files=()
