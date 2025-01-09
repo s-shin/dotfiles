@@ -1,0 +1,12 @@
+font-family = "Monaspace Argon Var"
+font-family = "Monaspace Argon"
+font-family = "PlemolJP Console NF"
+font-size = 13
+adjust-cell-height = 15%
+window-padding-x = 1
+window-padding-y = 1
+window-padding-balance = true
+background-opacity = 0.85
+background-blur-radius = 20
+macos-titlebar-style = tabs
+
