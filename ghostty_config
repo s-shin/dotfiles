@@ -1,7 +1,8 @@
-font-family = "Monaspace Argon Var"
-font-family = "Monaspace Argon"
+# https://github.com/ghostty-org/ghostty/issues/8712
+#font-family = "Monaspace Argon Var"
 font-family = "PlemolJP Console NF"
-font-size = 13
+font-size = 14
+#font-size = 13
 font-feature = "-dlig"
 adjust-cell-height = 15%
 window-padding-x = 1
@@ -10,4 +11,8 @@ window-padding-balance = true
 background-opacity = 0.85
 background-blur-radius = 20
 macos-titlebar-style = tabs
+
+# https://github.com/ghostty-org/ghostty/discussions/8714#discussioncomment-14475853
+keybind = super+shift+bracket_right=unbind
+keybind = super+shift+[=previous_tab
 
