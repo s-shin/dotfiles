@@ -17,3 +17,11 @@ disabled = true
 
 [cmake]
 disabled = true
+
+[shell]
+disabled = false
+bash_indicator = 'bash'
+zsh_indicator = ''
+powershell_indicator = 'PS'
+format = '$indicator'
+
